@@ -1,4 +1,4 @@
-import { MaxLength, ValidateIf, IsDefined } from 'class-validator'
+import { MaxLength, ValidateIf, IsDefined } from '@hmcts/class-validator'
 import { IsNotBlank } from '@hmcts/cmc-validators'
 import { Serializable } from 'models/serializable'
 import { DocumentType } from 'forms/models/documentType'
@@ -19,8 +19,7 @@ export class WhatDocuments implements Serializable<WhatDocuments> {
   otherDocuments?: string
 
   constructor (types?: string[], otherDocuments?: string) {
-    const defaultedValues = []
-    this.types = defaultedValues.concat(types)
+    this.types = types || []
     this.otherDocuments = otherDocuments
   }
 

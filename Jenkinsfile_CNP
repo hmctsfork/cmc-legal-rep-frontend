@@ -1,6 +1,6 @@
 #!groovy
 
-@Library("Infrastructure")
+@Library('Infrastructure')
 
 String product = "cmc"
 String component = "legal-frontend"
@@ -51,4 +51,6 @@ withPipeline("nodejs", product, component) {
   loadVaultSecrets(secrets)
   enableSlackNotifications(notificationsChannel)
   installCharts()
+  enableAksStagingDeployment()
+  disableLegacyDeployment()
 }
