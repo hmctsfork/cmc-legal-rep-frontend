@@ -1,3 +1,6 @@
+require('ts-node/register')
+require('tsconfig-paths/register')
+
 const ProxySettings = require('./src/integration-test/config/proxy-settings').ProxySettings
 
 exports.config = {
@@ -14,7 +17,8 @@ exports.config = {
       url: process.env.LEGAL_APP_URL || 'https://localhost:3000',
       waitForTimeout: 15000,
       desiredCapabilities: {
-        proxy: new ProxySettings()
+        proxy: new ProxySettings(),
+        "acceptInsecureCerts": true
       }
     },
     IdamHelper: {
