@@ -61,10 +61,12 @@ module "legal-frontend" {
   asp_name = "${local.asp_name}"
   asp_rg = "${local.asp_name}"
   instance_size = "${local.sku_size}"
+  enable_ase = "${var.enable_ase}"
 
   app_settings = {
     // Node specific vars
     NODE_ENV = "${var.env == "prod" ? "production" : "dev"}"
+    WEBSITE_NODE_DEFAULT_VERSION = "12.13.0"
     UV_THREADPOOL_SIZE = "64"
     NODE_CONFIG_DIR = "D:\\home\\site\\wwwroot\\config"
     TS_BASE_URL = "./src"
